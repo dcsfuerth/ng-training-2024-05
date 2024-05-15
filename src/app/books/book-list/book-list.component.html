@@ -14,6 +14,7 @@
         @if (coverIsVisible) {
         <th>Cover</th>
         }
+        <th>rating</th>
       </tr>
     </thead>
     <tbody>
@@ -27,6 +28,9 @@
         @if (coverIsVisible) {
         <td><img [src]="book.coverUrl" [style.width.px]="50"></td>
         }
+        <td>
+          <rating [id]="book.isbn" [rating]="book.rating" (plusClicked)="increaseRating($event)"></rating>
+        </td>
       </tr>
       }
     </tbody>
@@ -36,4 +40,4 @@
 Leider keiner Bücher
 }
 
-{{books | json}}
+<!-- {{books | json}} -->

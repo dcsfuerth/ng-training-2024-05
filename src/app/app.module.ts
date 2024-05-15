@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { CalculatorComponent } from './shared/calculator/calculator.component';
 import { Test234Component } from './shared/test234/test234.component';
 import { BookFilterPipe } from './books/book-filter.pipe';
+import { RatingComponent } from './shared/rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { BookFilterPipe } from './books/book-filter.pipe';
     BookListComponent,
     CalculatorComponent,
     Test234Component,
-    BookFilterPipe
+    BookFilterPipe,
+    RatingComponent
   ],
   imports: [
     BrowserModule,

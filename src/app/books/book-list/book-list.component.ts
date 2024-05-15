@@ -13,12 +13,14 @@ export class BookListComponent implements OnInit {
       title: 'The Great Gatsby',
       price: 7.99,
       coverUrl: 'https://m.media-amazon.com/images/I/71rUdxFkaCL._SL1500_.jpg',
+      rating: 4.5,
     },
     {
       isbn: '23456789',
       title: 'The Da Vinci Code',
       price: 9.99,
       coverUrl: 'https://m.media-amazon.com/images/I/71Wv+d6oP6L._SL1500_.jpg',
+      rating: 4.8,
     },
   ];
 
@@ -39,5 +41,12 @@ export class BookListComponent implements OnInit {
 
   getBookId(_index: number, book: Book) {
     return book.isbn;
+  }
+
+  increaseRating(isbn: string) {
+    const book = this.books.find((book) => book.isbn === isbn);
+    if (book) {
+      book.rating += 0.1;
+    }
   }
 }
