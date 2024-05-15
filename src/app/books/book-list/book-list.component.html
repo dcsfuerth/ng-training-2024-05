@@ -1,0 +1,42 @@
+<p>book-list works!</p>
+
+<div *ngIf="books.length;else keineBuecher">
+
+    <button (click)="toggleCover()">Cover ein/ausschalten</button>
+
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Suche nach Titel">
+
+    <p>Bücherliste gefiltert nach {{searchTerm}}:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Titel</th>
+                <th>ISBN</th>
+                <th>Preis</th>
+                <th *ngIf="coverIsVisible">Cover</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books; index as i; trackBy: getBookId">
+                <td>{{i+1}} {{ book.title }}</td>
+                <td>{{ book.isbn }}</td>
+                <td>{{ book.price }}</td>
+                <td *ngIf="coverIsVisible"><img [src]="book.coverUrl" [style.width.px]="50"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #keineBuecher>
+    Leider keiner Bücher
+</ng-template>
+
+@if (books.length) {
+<div>
+    Bücherliste
+</div>
+} @else {
+<div>
+    Leider keine Bücher
+</div>
+}
