@@ -17,7 +17,9 @@
       </tr>
     </thead>
     <tbody>
-      @for (book of books; track getBookId(i, book); let i = $index; let odd = $odd; let even = $even) {
+      @for (book of (books | bookFilter : searchTerm); track getBookId(i, book); let i = $index; let odd = $odd; let
+      even
+      = $even) {
       <tr>
         <td>{{i+1}} {{ book.title }}</td>
         <td>{{ book.isbn }}</td>
