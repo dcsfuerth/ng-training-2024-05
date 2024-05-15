@@ -17,9 +17,17 @@ export class BookListComponent implements OnInit {
     console.log('BookListComponent created!', new Date().getTime());
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     console.log('ngOnInit', new Date().getTime());
-    this.books = this.bookDataService.getBooks();
+    //    this.books = this.bookDataService.getBooks();
+
+    this.bookDataService.getBooks().subscribe((books) => {
+      this.books = books;
+      console.log('this.books', this.books);
+    });
+
+    // this.books = await this.bookDataService.getBooksNew();
+    // console.log('this.books', this.books);
   }
 
   toggleCover() {

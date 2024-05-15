@@ -9,7 +9,8 @@
     "test": "ng test",
     "prehund": "echo 'wedelt mit dem Schwanz'",
     "hund": "echo 'wuff'",
-    "posthund": "echo 'bellt'"
+    "posthund": "echo 'bellt'",
+    "db:mock": "json-server ./src/db/db.json"
   },
   "private": true,
   "dependencies": {

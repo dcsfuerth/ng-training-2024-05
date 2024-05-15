@@ -9,6 +9,9 @@ import { CalculatorComponent } from './shared/calculator/calculator.component';
 import { Test234Component } from './shared/test234/test234.component';
 import { BookFilterPipe } from './books/book-filter.pipe';
 import { RatingComponent } from './shared/rating/rating.component';
+import { HttpClientModule } from '@angular/common/http';
+import { WelcomeComponent } from './shared/welcome/welcome.component';
+import { BookDetailComponent } from './books/book-detail/book-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +20,12 @@ import { RatingComponent } from './shared/rating/rating.component';
     CalculatorComponent,
     Test234Component,
     BookFilterPipe,
-    RatingComponent
+    RatingComponent,
+    WelcomeComponent,
+    BookDetailComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

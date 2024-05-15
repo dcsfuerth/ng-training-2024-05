@@ -23,7 +23,7 @@
       = $even) {
       <tr>
         <td>{{i+1}} {{ book.title }}</td>
-        <td>{{ book.isbn }}</td>
+        <td><a [routerLink]="['/books', book.isbn]">{{ book.isbn }}</a> </td>
         <td>{{ book.price | currency: 'EUR' : 'symbol' : '1.2-2' }}</td>
         @if (coverIsVisible) {
         <td><img [src]="book.coverUrl" [style.width.px]="50"></td>
@@ -40,4 +40,4 @@
 Leider keiner Bücher
 }
 
-<!-- {{books | json}} -->
+{{books | json}}
