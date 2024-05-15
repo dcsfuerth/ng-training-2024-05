@@ -1,11 +1,9 @@
 <p>book-list works!</p>
 
-<div *ngIf="books.length;else keineBuecher">
-
+@if (books.length) {
+<div>
   <button (click)="toggleCover()">Cover ein/ausschalten</button>
-
   <input type="text" [(ngModel)]="searchTerm" placeholder="Suche nach Titel">
-
   <p>Bücherliste gefiltert nach {{searchTerm}}:</p>
   <table>
     <thead>
@@ -13,32 +11,27 @@
         <th>Titel</th>
         <th>ISBN</th>
         <th>Preis</th>
-        <th *ngIf="coverIsVisible">Cover</th>
+        @if (coverIsVisible) {
+        <th>Cover</th>
+        }
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let book of books; index as i; trackBy: getBookId">
+      @for (book of books; track getBookId(i, book); let i = $index; let odd = $odd; let even = $even) {
+      <tr>
         <td>{{i+1}} {{ book.title }}</td>
         <td>{{ book.isbn }}</td>
-        <td>{{ book.price }}</td>
-        <td *ngIf="coverIsVisible"><img [src]="book.coverUrl" [style.width.px]="50"></td>
+        <td>{{ book.price | currency: 'EUR' : 'symbol' : '1.2-2' }}</td>
+        @if (coverIsVisible) {
+        <td><img [src]="book.coverUrl" [style.width.px]="50"></td>
+        }
       </tr>
+      }
     </tbody>
   </table>
 </div>
+} @else {
+Leider keiner Bücher
+}
 
 {{books | json}}
-
-<ng-template #keineBuecher>
-  Leider keiner Bücher
-</ng-template>
-
-@if (books.length) {
-<div>
-  Bücherliste
-</div>
-} @else {
-<div>
-  Leider keine Bücher
-</div>
-}
