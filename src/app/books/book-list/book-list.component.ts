@@ -1,12 +1,13 @@
-import { Component, TrackByFunction, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Book } from '../book.interface';
 
 @Component({
   selector: 'book-list',
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.scss',
 })
-export class BookListComponent {
-  books = [
+export class BookListComponent implements OnInit {
+  books: Array<Book> = [
     {
       isbn: '12345678',
       title: 'The Great Gatsby',
@@ -24,13 +25,19 @@ export class BookListComponent {
   coverIsVisible = true;
   searchTerm = '';
 
-  constructor() {}
+  constructor() {
+    console.log('BookListComponent created!', new Date().getTime());
+  }
+
+  ngOnInit(): void {
+    console.log('ngOnInit', new Date().getTime());
+  }
 
   toggleCover() {
     this.coverIsVisible = !this.coverIsVisible;
   }
 
-  getBookId(_index: number, book: any) {
+  getBookId(_index: number, book: Book) {
     return book.isbn;
   }
 }

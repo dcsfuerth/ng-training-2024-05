@@ -7,13 +7,15 @@ import { BookListComponent } from './books/book-list/book-list.component';
 import { FormsModule } from '@angular/forms';
 import { CalculatorComponent } from './shared/calculator/calculator.component';
 import { Test234Component } from './shared/test234/test234.component';
+import { BookFilterPipe } from './books/book-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
     CalculatorComponent,
-    Test234Component
+    Test234Component,
+    BookFilterPipe
   ],
   imports: [
     BrowserModule,
