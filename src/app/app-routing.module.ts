@@ -5,6 +5,7 @@ import { CalculatorComponent } from './shared/calculator/calculator.component';
 import { WelcomeComponent } from './shared/welcome/welcome.component';
 import { BookDetailComponent } from './books/book-detail/book-detail.component';
 import { bookDetailEnterGuard } from './books/guards/book-detail-enter.guard';
+import { calculatorEnterGuard } from './shared/calculator/calculator-enter.guard';
 
 const routes: Routes = [
   {
@@ -28,6 +29,12 @@ const routes: Routes = [
   {
     path: 'calc',
     component: CalculatorComponent,
+    canActivate: [calculatorEnterGuard],
+  },
+  {
+    path: 'a',
+    loadChildren: () =>
+      import('./modulea/modulea.module').then((m) => m.ModuleaModule),
   },
   {
     path: '**',
@@ -37,7 +44,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, { useHash: false, enableTracing: false }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
