@@ -4,6 +4,7 @@ import { BookListComponent } from './books/book-list/book-list.component';
 import { CalculatorComponent } from './shared/calculator/calculator.component';
 import { WelcomeComponent } from './shared/welcome/welcome.component';
 import { BookDetailComponent } from './books/book-detail/book-detail.component';
+import { bookDetailEnterGuard } from './books/guards/book-detail-enter.guard';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
   {
     path: 'books/:isbn',
     component: BookDetailComponent,
+    canActivate: [bookDetailEnterGuard],
   },
   {
     path: 'welcome',

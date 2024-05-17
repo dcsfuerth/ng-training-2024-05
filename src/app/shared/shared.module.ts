@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [CalculatorComponent, RatingComponent, WelcomeComponent],
   imports: [BrowserModule, FormsModule],
+  exports: [CalculatorComponent, RatingComponent, WelcomeComponent],
   providers: [],
   bootstrap: [],
 })

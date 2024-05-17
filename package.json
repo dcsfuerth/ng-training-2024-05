@@ -10,7 +10,7 @@
     "prehund": "echo 'wedelt mit dem Schwanz'",
     "hund": "echo 'wuff'",
     "posthund": "echo 'bellt'",
-    "db:mock": "json-server ./src/db/db.json"
+    "db:mock": "json-server --id isbn ./src/db/db.json"
   },
   "private": true,
   "dependencies": {
